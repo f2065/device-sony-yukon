@@ -84,7 +84,16 @@ on post-fs-data
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps
     mkdir /data/misc/location/xtwifi 0770 gps gps
-
+    # real used in LineageOS 15.1 (see hardware/qcom/gps)
+    mkdir /data/misc/location/xtra 0770 gps gps
+    mkdir /data/misc/location/xtra/socket_hal_xtra 0770 gps gps
+    mkdir /data/misc/location/gpsone_d 0770 gps gps
+    mkdir /data/misc/location/gpsone_d/gpsone_loc_api_q 0770 gps gps
+    mkdir /data/misc/location/gpsone_d/gpsone_loc_api_resp_q 0770 gps gps
+    mkdir /data/misc/location/gpsone_d/quipc_ctrl_q 0770 gps gps
+    mkdir /data/misc/location/gpsone_d/msapm_ctrl_q 0770 gps gps
+    mkdir /data/misc/location/gpsone_d/msapu_ctrl_q 0770 gps gps
+    
     # Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared

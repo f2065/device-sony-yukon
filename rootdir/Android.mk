@@ -30,3 +30,10 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+gps_conf_dir := $(LOCAL_PATH)/system/etc
+gps_debug_conf := gps_debug.conf
+gps_conf := gps.conf
+$(gps_conf_dir)/$(gps_debug_conf):
+	ln -sf $(gps_conf) $(TARGET_OUT_ETC)/$(gps_debug_conf)
+ALL_DEFAULT_INSTALLED_MODULES += $(gps_conf_dir)/$(gps_debug_conf)

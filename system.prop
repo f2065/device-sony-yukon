@@ -59,7 +59,7 @@ wifi.interface=wlan0
 wifi.supplicant_scan_interval=180
 
 # BT address
-ro.bt.bdaddr_path=/data/misc/bluetooth/bluetooth_bdaddr
+ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr
 
 # System prop for NFC DT
 ro.nfc.port=I2C

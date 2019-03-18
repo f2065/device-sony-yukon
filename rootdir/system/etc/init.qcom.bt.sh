@@ -25,7 +25,7 @@ failed ()
 
 POWER_CLASS=`getprop qcom.bt.dev_power_class`
 TRANSPORT=`getprop ro.qualcomm.bt.hci_transport`
-BDADDR=""
+BDADDR=`cat /data/misc/bluetooth/bdaddr`
 
 #find the transport type
 logi "Transport : $TRANSPORT"

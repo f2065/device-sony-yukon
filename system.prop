@@ -90,6 +90,7 @@ debug.qualcomm.sns.libsensor1=0
 # Bluetooth
 ro.qualcomm.bt.hci_transport=smd
 qcom.bluetooth.soc=smd
+vendor.qcom.bluetooth.soc=smd
 
 # RILD
 rild.libargs=-d /dev/smd0

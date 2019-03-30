@@ -132,6 +132,9 @@ on early-boot
    # WCNSS enable
    write /dev/wcnss_wlan ""
 
+    # Init Bluetooth MAC
+    start init_bdmacaddr
+
 on boot
     # Bluetooth modules
     chown system system /sys/module/bluetooth/parameters/disable_ertm
@@ -298,6 +301,13 @@ service thermal-engine /system/vendor/bin/thermal-engine -c /etc/thermal-engine-
     class main
     user root
     group root
+
+# Init Bluetooth MAC
+service init_bdmacaddr /system/bin/sh /system/etc/init.qcom.bt.sh btmacaddr
+    user bluetooth
+    group bluetooth system
+    disabled
+    oneshot
 
 # QCOM prop
 service qmuxd /system/vendor/bin/qmuxd

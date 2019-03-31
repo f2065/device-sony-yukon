@@ -141,3 +141,6 @@ DEVICE_PROVISIONED=1
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+
+# Vendor security patch level: 2016-04-12 - latest Sony AOSP SW binaries for Yukon
+ro.vendor.build.security_patch=2016-04-12

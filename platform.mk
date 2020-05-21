@@ -291,3 +291,18 @@ PRODUCT_PACKAGES += \
 
 # Include QCOM proprietary
 $(call inherit-product-if-exists, vendor/qcom/proprietary/proprietary.mk)
+
+ifeq ($(PRODUCT_SYSTEM_SERVER_COMPILER_FILTER),) # conflict prevention with the real GO-mode (build/target/product/go_defaults.mk)
+# Speed profile services and wifi-service to reduce RAM and storage.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+# Always preopt extracted APKs to prevent extracting out of the APK for gms modules.
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+# Set the compiler filter for shared apks to quicken.
+# Rationale: speed has a lot of dex code expansion, it uses more ram and space compared to quicken. 
+# Using quicken for shared APKs on Go devices may save RAM.
+PRODUCT_PROPERTY_OVERRIDES += \
+     pm.dexopt.shared=quicken
+# set threshold to filter unused apps
+PRODUCT_PROPERTY_OVERRIDES += \
+     pm.dexopt.downgrade_after_inactive_days=20
+endif

@@ -282,6 +282,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full
 
+# Packages for MultiSIM
+PRODUCT_PACKAGES += \
+    qti-telephony-common
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
